@@ -1,7 +1,6 @@
 $( document ).ready(function() {
 
 
-
 function startMap() {
 
     // Store Ironhack's coordinates
@@ -55,15 +54,19 @@ function startMap() {
   
   startMap();
 
-  var myMarker = new google.maps.Marker({
-    position: {
-        lat: 41.3977381,
-        lng: 2.190471916
-    },
-    map: map,
-    title: "I'm here"
+var geocoder;
+function addressToGeocode(address){
+  geocoder = new google.maps.Geocoder();
+  let geocodeResult;
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === 'OK') {
+      geocodeResult = results;
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
   });
-
+  return geocodeResult;
+}
 
 //end
 });

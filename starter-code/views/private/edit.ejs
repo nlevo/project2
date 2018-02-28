@@ -1,0 +1,38 @@
+
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
+<%if(!business) {%>
+    <h2>Error - there are no businesses in the database</h2>
+<%} else {%>
+<table class="table table-active table-hover w-75 text-center box-shadow--6dp">
+    <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Category</th>
+          <th scope="col">Description</th>
+          <th scope="col">Language</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Website</th>
+          <th scope="col">Edit/Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+    <form id="form-edit" action="/business/<%=business._id%>/edit" method="POST">
+        <tr class="table-light">
+        <td><input type="text" name="name" value="<%=business.name%>"></td> 
+        <td><input type="text" name="category" value="<%=business.category%>"></td>
+        <td><input type="text" name="description" value="<%=business.description%>"></td>
+        <td><input type="text" name="languages" value="<%=business.language%>"></td>
+        <td><input type="text" name="phone" value="<%=business.phone%>"></td>
+        <td><input type="text" name="website" value="<%=business.website%>"></td>
+        <td>
+            <div class="con-div">
+                <a onclick="document.getElementById('form-edit').submit();" href="#"><i class="fas fa-check-circle" ></i></a>
+            </div>
+        </td>
+        </tr>
+    </form>
+    </tbody>
+</table>
+<%}%>
+

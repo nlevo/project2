@@ -4,11 +4,14 @@ const Schema   = mongoose.Schema;
 const businessSchema = new Schema({
   name:  String,
   description:  String,
-  cuisine: [String],
   phone: Number,
   website: String,
-  language: [String],
+  language: {
+    type: String,
+    default: "English"
+    },
   _owner: { type: Schema.Types.ObjectId, ref: 'User' }, 
+  loc: { type: { type: String }, coordinates: [] },
   hours: {
     mon: {open: Number, close: Number, isClosed: Boolean},
     tue: {open: Number, close: Number, iClosed: Boolean},
@@ -19,6 +22,7 @@ const businessSchema = new Schema({
     sun: {open: Number, close: Number, isClosed: Boolean}
   },
   address: {
+    full_address: String,
     street_num: Number,
     street_name: String,
     city: String,
@@ -39,6 +43,6 @@ const businessSchema = new Schema({
 );
 
 const Business = mongoose.model("Business", businessSchema);
-
+businessSchema.index({ loc: '2dsphere' });
 module.exports = Business;
 
