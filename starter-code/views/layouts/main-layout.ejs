@@ -2,6 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <%if(userSignedIn){%>
+      <title>In</title>
+    <%}else {%>
+      <title>Out</title>
+    <%}%>
     <title>My First Website</title>
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" />
@@ -15,37 +20,51 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/map">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item"ç>
-            <a class="nav-link" href="new">Add Business</a>
+              <a class="nav-link" href="/map">Map</a>
+          </li>
+          <li class="nav-item"ç>
+              <a class="nav-link" href="/list">List</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/profile">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
+              <a class="nav-link" href="/new">Add Business</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          <button id="btn-search" class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <ul class="navbar-nav mr-auto content-right">
-          <li class="nav-item active">
-            <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/signup">Sign up <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
-        <ul class="navbar-nav mr-auto content-right">
-          <li class="nav-item active">
-            <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
-          </li>
-        </ul>
+        <%if(!userSignedIn){%>
+        <div class="text-right">
+          <ul class="navbar-nav mr-auto content-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="/signup">Sign up <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+      </div>
+        <%}else {%>
+        <div class="text-right">
+          <ul class="navbar-nav mr-auto content-right">
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+      </div>
+        <%}%>
       </div>
     </nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <body>
     <%- body -%> <!-- <=== note this line -->
   </body>

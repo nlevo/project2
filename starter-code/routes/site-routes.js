@@ -7,7 +7,11 @@ const Business       = require('../models/business');
 siteRoutes.get("/", (req, res, next) => {
   res.render("home");
 });
-  
+ 
+//ROUTE TO MAP
+siteRoutes.get("/map", (req, res, next) => {
+  res.render("map");
+});
 
 siteRoutes.get("/secret", ensureLogin.ensureLoggedIn(), (req, res, next) => {
     res.render("secret");

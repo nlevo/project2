@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -10,4 +9,28 @@ a {
 .col-centered{
   float: none;
   margin: 0 auto;
+}
+
+#map {
+  /* margin-top: -24px !important;
+  height: 650px !important;
+  width: 98% !important;
+  margin: 0 auto; */
+  width: 100%;
+  position: absolute !important;
+  top: 50px !important;
+  bottom: 0 !important;
+  margin: 0 auto !important;
+ }
+
+ .navbar {
+   height: 35px !important;
+ }
+
+ .form-control {
+   height: 32px !important;
+ }
+
+ #btn-search {
+  height: 32px !important;
 }
