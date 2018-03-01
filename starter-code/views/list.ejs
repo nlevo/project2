@@ -4,6 +4,8 @@
 <%if(!businesses) {%>
     <h2>Error - there are no businesses in the database</h2>
 <%} else {%>
+
+    
 <table class="sortable table table-active table-hover w-75 text-center box-shadow--6dp">
     <thead>
         <tr>
@@ -19,7 +21,6 @@
       <tbody>
 
     <%businesses.forEach(function(business) {%>
-    
         <tr class="table-light">
         <td><%=business.name%></td> 
         <td><%=business.category%></td>
@@ -27,11 +28,17 @@
         <td><%=business.language%></td>
         <td><%=business.phone%></td>
         <td><%=business.website%></td>
+        <%if(business._owner.equals(userId)) {%>
         <td> <div class="icon-div">
                 <a href="/business/<%=business._id%>/edit"><i class="fas fa-pencil-alt" ></i></a>
-                <a href="/business/<%=business._id%>/edit"><i class="ml-2 fas fa-trash-alt"></i></a>
+                <a href="/business/<%=business._id%>/delete"><i class="ml-2 fas fa-trash-alt"></i></a>
             </div>
         </td>
+        <%} else if(userId === 0){%>
+        <td><a href="/login">Login</a></td>
+        <%} else {%>
+            <td></td>
+        <%}%>
         </tr>
 
     <%})%>

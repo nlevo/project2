@@ -8,6 +8,7 @@
       <title>Out</title>
     <%}%>
     <title>My First Website</title>
+    
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
@@ -22,10 +23,10 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/map">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item"ç>
-              <a class="nav-link" href="/map">Map</a>
+              <a class="nav-link" href="/">Map</a>
           </li>
           <li class="nav-item"ç>
               <a class="nav-link" href="/list">List</a>
@@ -38,8 +39,7 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button id="btn-search" class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <li> <a href="/map"><i class="fas fa-search"></i></a></li>
         </form>
         <%if(!userSignedIn){%>
         <div class="text-right">

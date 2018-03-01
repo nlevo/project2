@@ -8,18 +8,19 @@ const businessSchema = new Schema({
   website: String,
   language: {
     type: String,
+    enum : ['English', 'Russian', 'Spanish', 'German', "Mandarin", 'Pilipino'],
     default: "English"
     },
   _owner: { type: Schema.Types.ObjectId, ref: 'User' }, 
   loc: { type: { type: String }, coordinates: [] },
   hours: {
-    mon: {open: Number, close: Number, isClosed: Boolean},
-    tue: {open: Number, close: Number, iClosed: Boolean},
-    wed: {open: Number, close: Number, isClosed: Boolean},
-    thu: {open: Number, close: Number, isClosed: Boolean},
-    fri: {open: Number, close: Number, isClosed: Boolean},
-    sat: {open: Number, close: Number, isClosed: Boolean},
-    sun: {open: Number, close: Number, isClosed: Boolean}
+    mon: {open: String, close: String, isClosed: Boolean},
+    tue: {open: String, close: String, isClosed: Boolean},
+    wed: {open: String, close: String, isClosed: Boolean},
+    thu: {open: String, close: String, isClosed: Boolean},
+    fri: {open: String, close: String, isClosed: Boolean},
+    sat: {open: String, close: String, isClosed: Boolean},
+    sun: {open: String, close: String, isClosed: Boolean}
   },
   address: {
     full_address: String,

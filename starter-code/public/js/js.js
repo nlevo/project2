@@ -12,7 +12,7 @@ $( document ).ready(function() {
   });
 });
 
-
+//prevents form submittion when user presses "enter" key inside google autocomplete inputrs tag
 $(document).on("keypress", ":input:not(textarea):not([type=submit])", function(event) {
   if (event.keyCode == 13) {
     event.preventDefault();

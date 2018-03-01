@@ -15,7 +15,7 @@
             <div class="form-group col-centered row">
                 <label class="control-label text-center" for="readOnlyInput">Category:</label>    
                 <select class="custom-select" name="category">
-                    <!-- categories auto=population -->
+                    <!-- categories auto-population -->
                     <option selected="">Select Business Category</option>
                     <%categories.forEach(function(category) { %>
                         <option value="<%=category%>"><%=category%></option>
@@ -30,7 +30,13 @@
 
             <div class="form-group col-centered row">
                     <label class="control-label text-center" for="readOnlyInput">Language:</label>    
-                    <input type="text" class="form-control" placeholder="Enter language" name="language">
+                    <select class="custom-select" name="language">
+                    <!-- language auto-population -->
+                        <option selected="">Select Language</option>
+                    <%languages.forEach(function(language) { %>
+                        <option value="<%=language%>"><%=language%></option>
+                    <%})%>
+                </select>
                 </div>
 
             <div class="form-group col-centered row">
@@ -157,7 +163,7 @@
             </div>
             
                 <div class="row float-right">
-                    <button class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
                 </div>
             </form>
     </div>

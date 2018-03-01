@@ -1,5 +1,8 @@
 $( document ).ready(function() {
 
+$('#btn-search').click(function() {
+  console.log($("input").val());
+});
 
 function startMap() {
 
