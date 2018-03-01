@@ -15,6 +15,10 @@ const session        = require("express-session");
 const User           = require('./models/user');
 const bcrypt         = require('bcrypt');
 // Controllers
+var port = process.env.PORT || 8000
+server.listen(port, function() {
+  console.log("App is running on port " + port);
+});
 
 require("dotenv").config();
 mongoose.connect(process.env.MONGODB_URI);
