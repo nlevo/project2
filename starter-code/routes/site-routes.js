@@ -137,13 +137,13 @@ var geocoder         = require('geocoder');
     });  
   });
 
-  //new databse route
-  siteRoutes.get('/getBusiness', (req, res, next) => {
-    console.log()
-    Business.find((err, buissnesses) => {
-      res.json(buissnesses);
-    })
-  })
+  // //new databse route
+  // siteRoutes.get('/getBusiness', (req, res, next) => {
+  //   console.log()
+  //   Business.find((err, buissnesses) => {
+  //     res.json(buissnesses);
+  //   })
+  // })
 
   //ROUTE TO MAP
 siteRoutes.get("/", (req, res, next) => {
