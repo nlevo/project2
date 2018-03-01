@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <%if(userSignedIn){%>
+      <title>In</title>
+    <%}else {%>
+      <title>Out</title>
+    <%}%>
+    <title>My First Website</title>
+    
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    
+  
+  </head>
+    <nav class="navbar mb-4 navbar-expand-lg navbar-dark bg-primary">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item"ç>
+              <a class="nav-link" href="/">Map</a>
+          </li>
+          <li class="nav-item"ç>
+              <a class="nav-link" href="/list">List</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/new">Add Business</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <li> <a href="/map"><i class="fas fa-search"></i></a></li>
+        </form>
+        <%if(!userSignedIn){%>
+        <div class="text-right">
+          <ul class="navbar-nav mr-auto content-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="/signup">Sign up <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+      </div>
+        <%}else {%>
+        <div class="text-right">
+          <ul class="navbar-nav mr-auto content-right">
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+      </div>
+        <%}%>
+      </div>
+    </nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <body>
+    <%- body -%> <!-- <=== note this line -->
+  </body>
+</html>
+
+

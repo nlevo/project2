@@ -1,0 +1,177 @@
+
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <script src="../js/js.js"></script>
+    
+    
+  </head>
+
+  <body>
+        <div class="w-50 col-centered ">
+          <form action="/new" method="POST">
+
+            <div class="form-group col-centered row">
+                <label class="control-label text-center" for="readOnlyInput">Category:</label>    
+                <select class="custom-select" name="category">
+                    <!-- categories auto-population -->
+                    <option selected="">Select Business Category</option>
+                    <%categories.forEach(function(category) { %>
+                        <option value="<%=category%>"><%=category%></option>
+                    <%})%>
+                </select>
+            </div>
+
+            <div class="form-group col-centered row">
+                <label class="control-label text-center" for="readOnlyInput">Name:</label>    
+                <input type="text" class="form-control" placeholder="Enter Business Name" id="inputDefault" name="name">
+            </div>
+
+            <div class="form-group col-centered row">
+                    <label class="control-label text-center" for="readOnlyInput">Language:</label>    
+                    <select class="custom-select" name="language">
+                    <!-- language auto-population -->
+                        <option selected="">Select Language</option>
+                    <%languages.forEach(function(language) { %>
+                        <option value="<%=language%>"><%=language%></option>
+                    <%})%>
+                </select>
+                </div>
+
+            <div class="form-group col-centered row">
+                    <label class="control-label text-center" for="readOnlyInput">Phone:</label>    
+                    <input type="tel" class="form-control" placeholder="Enter Business Phone Number" id="phone" name="phone">
+                </div>
+
+            <div class="form-group col-centered row">
+                    <label class="control-label text-center" for="readOnlyInput">Website:</label>    
+                    <input type="string" class="form-control" placeholder="Enter Bussiness Website" id="website" name="website">
+                </div>
+            
+            <a id="btn-address" class="btn btn-secondary bg-dark col-12 text-center mb-3" >Address</a>
+            <div id="address" style="display:none" class="pt-3">
+
+                    <div class="form-group row" id="locationField">
+                            <label class="control-label text-center" for="readOnlyInput">Full Address:</label>    
+                            <input class="form-control" name="full_address" id="autocomplete" placeholder="Start typing the address" onfocus="geolocate()" type="text"></input>
+                    </div>
+
+                <div class="form-group pt-4 row justify-content-between">    
+                        <label class="control-label align-self-center ">Street address</label>
+                        <input class="form-control col-2" id="street_number" disabled="true" name="street_num"></input>
+                        <input class="form-control col-7" id="route" disabled="true" name="street_name"></input>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label">City</label>
+                    <!-- Note: Selection of address components in this example is typical.
+                        You may need to adjust it for the locations relevant to your app. See
+                        https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+                    -->
+                    <input class="form-control text-center" id="locality" disabled="true" name="city"></input>
+                    
+                </div>
+                <div class="form-group row justify-content-around text-center">
+                    <label class="control-label col-3">State</label>
+                    <label class="control-label col-3 offset-1 ">Zip code</label>
+                    <label class="control-label col-3 offset-1">Country</label>
+                </div>
+
+                <div class="form-group row justify-content-around ">
+                    <input class="form-control col-lg-3 text-center" id="administrative_area_level_1" disabled="true" name=state""></input>
+                    <input class="form-control col-lg-3 offset-1 text-center" id="postal_code" disabled="true" name="zip"></input>
+                    <input class="form-control field offset-1 col-lg-3 text-center" id="country" disabled="true"></input>
+                </div> 
+            </div>   
+            
+            <a id="btn-hours" class="btn btn-secondary bg-dark col-12 text-center" >Hours of Operations</a>
+               <div id="hours-of-operation" style="display:none" class="pt-3">  
+                   <div class="form-inline">
+                        <label class="control-label align-self-center col-1">Mon:</label>
+                        <input class="form-control text-center col-4" type="time" name="open"></input>
+                        <input class="form-control text-center col-4" type="time" name="close"></input>
+                        <div class="custom-control custom-checkbox justify-content-between col-2 offset-1">
+                                <input type="checkbox" class="custom-control-input" name="isClosed" value="true" id="customCheck1" >
+                                <label class="custom-control-label" for="customCheck1">Closed</label>
+                        </div>
+                    </div>
+
+                    <div class="form-inline">
+                            <label class="control-label align-self-center col-1">Tue:</label>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <div class="custom-control custom-checkbox justify-content-between col-2 offset-1">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                    <label class="custom-control-label" for="customCheck2">Closed</label>
+                            </div>
+                        </div>
+
+                    <div class="form-inline">
+                            <label class="control-label align-self-center col-1">Wed:</label>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <div class="custom-control custom-checkbox justify-content-between col-2 offset-1">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                    <label class="custom-control-label" for="customCheck3">Closed</label>
+                            </div>
+                        </div>
+                    
+                    <div class="form-inline">
+                            <label class="control-label align-self-center col-1">Thu:</label>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <div class="custom-control custom-checkbox justify-content-between col-2 offset-1">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                    <label class="custom-control-label" for="customCheck4">Closed</label>
+                            </div>
+                        </div>
+
+                <div class="form-inline">
+                            <label class="control-label align-self-center col-1">Fri:</label>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <div class="custom-control custom-checkbox justify-content-between col-2 offset-1">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
+                                    <label class="custom-control-label" for="customCheck5">Closed</label>
+                            </div>
+                        </div>
+
+                <div class="form-inline">
+                            <label class="control-label align-self-center col-1">Sat:</label>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <div class="custom-control custom-checkbox justify-content-between col-2 offset-1">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck6">
+                                    <label class="custom-control-label" for="customCheck6">Closed</label>
+                            </div>
+                        </div>
+                <div class="form-inline">
+                            <label class="control-label align-self-center col-1">Sun:</label>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <input class="form-control text-center col-4" type="time" ></input>
+                            <div class="custom-control custom-checkbox justify-content-between col-2 offset-1">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck7">
+                                    <label class="custom-control-label" for="customCheck7">Closed</label>
+                            </div>
+                        </div>
+                    
+                </div>
+
+            <div class="form-group row pt-3">
+                <label for="exampleTextarea">Business Description</label>
+                <textarea class="form-control" name="description" id="exampleTextarea" rows="3"></textarea>
+            </div>
+            
+                <div class="row float-right">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+    </div>
+           
+           
+           
+    
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBibBok7MtTB_QmkFrwJ8zN1LrYdBRCN8w&libraries=places&callback=initAutocomplete"
+        async defer></script>
+
+  </body>
