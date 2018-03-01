@@ -1,5 +1,4 @@
-require("dotenv").config();
-mongoose.connect(process.env.MONGODB_URI);
+
 const express        = require("express");
 const path           = require("path");
 const logger         = require("morgan");
@@ -17,7 +16,8 @@ const User           = require('./models/user');
 const bcrypt         = require('bcrypt');
 // Controllers
 
-
+require("dotenv").config();
+mongoose.connect(process.env.MONGODB_URI);
 // Mongoose configuration
 //mongoose.connect("mongodb://localhost/basic-auth");
 
