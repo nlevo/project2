@@ -4,7 +4,7 @@ const Schema   = mongoose.Schema;
 const businessSchema = new Schema({
   name:  String,
   description:  String,
-  phone: Number,
+  phone: String,
   website: String,
   language: {
     type: String,
