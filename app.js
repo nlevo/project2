@@ -18,10 +18,10 @@ const bcrypt         = require('bcrypt');
 
 
 
-//require("dotenv").config();
-//mongoose.connect(process.env.MONGODB_URI);
+require("dotenv").config();
+mongoose.connect(process.env.MONGODB_URI);
 // Mongoose configuration
-mongoose.connect("mongodb://localhost/basic-auth");
+//mongoose.connect("mongodb://localhost/basic-auth");
 
 // Middlewares configuration
 app.use(logger("dev"));
