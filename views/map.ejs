@@ -2,16 +2,17 @@
 
   <body>
     <div id="map"></div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBibBok7MtTB_QmkFrwJ8zN1LrYdBRCN8w"></script>
-    <script type="text/javascript" src="../js/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBibBok7MtTB_QmkFrwJ8zN1LrYdBRCN8w&callback=updateMap"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script type="text/javascript" src="../js/map.js"></script> -->
+    <script type="text/javascript" src="../js/js.js"></script>
     <script type="text/javascript" src="../js/map-search.js"></script>
-    <div class="well-searchbox">
-        <form class="form-horizontal" form action="/search" method="POST" role="form">
-
+    <div id="search-box" class="well-searchbox">
+       
             <div class="form-group">
                 <label class="col-md-4 control-label">Category</label>
                 <div class="col-md-8">
-                    <select name="category" class="form-control" placeholder="Select Category">
+                    <select id="select-category" name="category" class="form-control" placeholder="Select Category">
                         <option value="">Select Category</option>
                         <%categories.forEach(function(category) { %>
                           <option value="<%=category%>"><%=category%></option>
@@ -23,7 +24,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label">Language</label>
                 <div class="col-md-8">
-                    <select name="language" class="form-control" placeholder="Select Language">
+                    <select id="select-language" name="language" class="form-control" placeholder="Select Language">
                          <option value="">Select Language</option>
                         <%languages.forEach(function(language) { %>
                           <option value="<%=language%>"><%=language%></option>
@@ -33,8 +34,12 @@
             </div>
 
             <div class="col-sm-offset-4 col-sm-5">
-                <button type="submit" id="btn-search" class="btn btn-success">Search</button>
-            </div>
-        </form>
+                <button onclick="getFullList();" type="submit" id="btn-search" class="btn btn-success">Search</button>
+            </div>       
     </div>
+
+    <div style="display: none;" class="search">
+               
+        <a href="#"> <i class="fas fa-search"></i></a>
+       </div>
   </body>

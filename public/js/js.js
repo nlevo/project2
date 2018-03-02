@@ -10,7 +10,22 @@ $( document ).ready(function() {
   $("#btn-address").click(function(){
     $("#address").toggle("slow");
   });
+
+//toggle map search
+$("#btn-search").click(function(){
+  $("#search-box").toggle("slow", "swing");
+  $(".search").toggle("slow");
+  });
+
+  //toggle map search
+$(".search").click(function(){
+  $("#search-box").toggle("slow", "swing");
+  $(".search").toggle("slow");
+  });
+
 });
+
+
 
 //prevents form submittion when user presses "enter" key inside google autocomplete inputrs tag
 $(document).on("keypress", ":input:not(textarea):not([type=submit])", function(event) {

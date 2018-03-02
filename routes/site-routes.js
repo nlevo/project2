@@ -6,8 +6,6 @@ const Business       = require('../models/business');
 var geocoder         = require('geocoder');
 
 
- 
-
 
   //ROUTE DISPLAY NEW BUSINESS FORM
   siteRoutes.get("/new", ensureLogin.ensureLoggedIn(), (req, res, next) => {
@@ -125,25 +123,30 @@ var geocoder         = require('geocoder');
   });
 
 //POST - SEARCH BUSINESS
-  siteRoutes.post('/search',(req, res, next) => {
+  // siteRoutes.post('/search',(req, res, next) => {
 
-    Business.find( {category: req.body.category, language: req.body.language}, function(err,data){
+  //   Business.find( {category: req.body.category, language: req.body.language}, function(err,data){
+  //     if (err){
+  //         res.render("error", {message: err})
+  //     } 
+  //     res.render("map-search", { business: data, 
+  //       categories: (Business.schema.path('category').enumValues), //categories auto-population
+  //       languages: (Business.schema.path('language').enumValues)});
+  //   });  
+  // });
+
+  //new databse route
+  siteRoutes.post('/search2', (req, res, next) => {
+    
+    Business.find( {category: req.body.category, language: req.body.language}, function(err, data){
       if (err){
           res.render("error", {message: err})
       } 
-      res.render("map-search", { business: data, 
-        categories: (Business.schema.path('category').enumValues), //categories auto-population
-        languages: (Business.schema.path('language').enumValues)});
-    });  
-  });
-
-  // //new databse route
-  // siteRoutes.get('/getBusiness', (req, res, next) => {
-  //   console.log()
-  //   Business.find((err, buissnesses) => {
-  //     res.json(buissnesses);
-  //   })
-  // })
+      console.log("Businesses are:");
+      console.log(data);
+      res.json(data);
+    });
+  })
 
   //ROUTE TO MAP
 siteRoutes.get("/", (req, res, next) => {
@@ -151,7 +154,14 @@ siteRoutes.get("/", (req, res, next) => {
                       languages: Business.schema.path('language').enumValues });
 });
 
-  
+// siteRoutes.post('/search2', (req, res, next) => {
+//   console.log("Category: " + req.category);
+//   console.log("Lnguage: " + req.language);
+//   Business.find((err, buissnesses) => {
+//     res.json(buissnesses);
+//   })
+// })  
+
 
 
 function stringTimeToMinutes(stringTime){

@@ -85,3 +85,13 @@ icon-div{
 .well-searchbox label {
     color: #fff;
 }
+
+
+
+.search input { text-indent: 30px;}
+.search .fa-search { 
+  position: absolute;
+  top: 30%;
+  left: 7px;
+  font-size: 4rem;
+}
