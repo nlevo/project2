@@ -26,8 +26,8 @@
         <td><%=business.category%></td>
         <td><%=business.description%></td>
         <td><%=business.language%></td>
-        <td><%=business.phone%></td>
-        <td><%=business.website%></td>
+        <td><%=business.phone%>-</td>
+        <td> <a href="http://<%=business.website%>"><%=business.website%></a> </td>
         <%if(business._owner.equals(userId)) {%>
         <td> <div class="icon-div">
                 <a href="/business/<%=business._id%>/edit"><i class="fas fa-pencil-alt" ></i></a>
