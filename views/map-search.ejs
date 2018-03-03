@@ -1,7 +1,7 @@
 
   <body>
         <div id="map"></div>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBibBok7MtTB_QmkFrwJ8zN1LrYdBRCN8w&callback=startMap"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.GOOGLE_API%>&callback=updateMap"></script>
         <script type="text/javascript" src="../js/map-search.js"></script>
         <div class="well-searchbox" style="display:none" >
             <form class="form-horizontal" form action="/search" method="POST" role="form">
