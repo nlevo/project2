@@ -18,8 +18,6 @@ const User           = require('./models/user');
 const bcrypt         = require('bcrypt');
 // Controllers
 
-
-
 mongoose.connect(process.env.MONGODB_URI);
 // Mongoose configuration
 //mongoose.connect("mongodb://localhost/basic-auth");
@@ -37,7 +35,6 @@ app.set('layout', 'layouts/main-layout');
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
-
 
 // Access POST params with body parser
 app.use(bodyParser.json());
@@ -69,7 +66,7 @@ passport.use('local-signup', new LocalStrategy(
     process.nextTick(() => {
         User.findOne({
             'username': username
-        }, (err, user) => {
+        }, (err, user) => {a
             if (err){ return next(err); }
 
             if (user) {
