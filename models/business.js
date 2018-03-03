@@ -32,7 +32,7 @@ const businessSchema = new Schema({
   },
   category: {
     type: String,
-    enum : ['Restaurant', 'Lawyer', 'Doctor']
+    enum : ['Restaurant', 'Lawyer', 'Doctor', 'School']
     },
   },
   {
